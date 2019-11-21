@@ -1,0 +1,101 @@
+<div class="background"></div>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="#" [routerLink]="['/home']"  tabindex="8"><img src="../../../assets/imgs/logos/logo.png" alt="artsy" width="40px"></a>
+        <div style="margin-left: auto">
+            <form class="form-inline">
+                <div class="form-group">
+                        <button class="btn btn-sm btn-outline-warning mr-2 mt-2" type="button" [routerLink]="['/browse']" tabindex="6"><span>Browse</span></button>
+                        <button class="btn btn-sm btn-outline-warning mr-2 mt-2" type="button" [routerLink]="['/about']" tabindex="7"><span>About</span></button>
+                </div>
+            </form>
+        </div>
+      </nav>
+
+      <div class="container">
+        <div class="row">
+            <div class="card mx-auto mt-5  col-md-7 col-10" style="width: 24rem">
+                <img class="card-img-top mx-auto" src="../../../assets/imgs/logos/logo.png" alt="artsy" style="width: 60px">
+                <div class="card-title">
+                  <p class="text-center text-secondary">Sign In</p>
+                </div>
+      
+                <div class="card-body">
+                    <form class="form-horizontal" [formGroup]="form" (ngSubmit)="onSubmit()">
+                      <div class="form-group">
+                        <label class="control-label col-sm-4 text-secondary" for="username">Username</label>
+                        <div class="col-sm-10">
+                          <input type="text" class="form-control" id="email" placeholder="Enter email or username" required autofocus formControlName="username"  [ngClass]="{ 'is-invalid': submitted && fields.username.errors }" tabindex="1"/>
+                          <div *ngIf="submitted && fields.username.errors" class="invalid-feedback">
+                              <div *ngIf="fields.username.errors.required">Please provide a username</div>
+                          </div>
+                        </div>
+                      </div>
+      
+                      <div class="form-group">
+                        <label class="control-label col-sm-5 text-secondary" for="password">Password</label>
+                        <div class="col-sm-10"> 
+                          <input type="password" class="form-control" id="pwd" placeholder="At least 6 characters" required formControlName="password" [ngClass]="{ 'is-invalid': submitted && fields.password.errors }" tabindex="2"/>
+                          <div *ngIf="submitted && fields.password.errors" class="invalid-feedback">
+                              <div *ngIf="fields.password.errors.required">Please provide a password</div>
+                          </div>
+                          <div [hidden]="fields.password.errors.required" *ngIf="submitted && fields.password.errors" class="invalid-feedback">
+                            <div *ngIf="fields.password.errors.minlength">Password must have at least 6 characters</div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-sm-10">
+                        <small class="text-secondary ml-2">* Signing in means that you agree with our <a href="#" class="text-secondary">terms and conditions</a></small>
+                      </div>
+                      <div class="form-group"> 
+                            <div class="col-sm-offset-2 col-sm-10">
+                                <button type="submit" class="btn btn-outline-dark btn-sm col-md-12" [disabled]="waitingForResponse" tabindex="3">Submit</button>
+                              </div>
+                        <div class="col-sm-offset-2 col-sm-10 mt-3">
+                          <button type="button" class="btn btn-dark btn-sm col-md-12" [routerLink]="['/signup']" tabindex="4">Need an account? Sign Up</button>
+                        </div>
+                        <a href="#" class="text-secondary ml-3" tabindex="5">Forgot password?</a>
+                      </div>
+      
+                    </form>
+                </div>
+                </div>
+        </div>
+      </div>
+
+       <footer class="page-footer font-small text-secondary" style="position:relative; top: 1%;">
+             <!-- <div class="container">
+                <ul class="list-unstyled list-inline text-center">
+                  <li class="list-inline-item">
+                    <a class="btn-floating btn-fb mx-1" href="https://www.facebook.com" target="_blank">
+                      <i class="fa fa-facebook"> </i>
+                    </a>
+                  </li>
+                  <li class="list-inline-item">
+                    <a class="btn-floating btn-tw mx-1" href="https://www.twitter.com" target="_blank">
+                      <i class="fa fa-twitter"> </i>
+                    </a>
+                  </li>
+                  <li class="list-inline-item">
+                    <a class="btn-floating btn-gplus mx-1" href="https://plus.google.com" target="_blank">
+                      <i class="fa fa-google-plus"> </i>
+                    </a>
+                  </li>
+                  <li class="list-inline-item">
+                    <a class="btn-floating btn-li mx-1" href="https://www.linkedin.com" target="_blank">
+                      <i class="fa fa-linkedin"> </i>
+                    </a>
+                  </li>
+                  <li class="list-inline-item">
+                      <a class="btn-floating btn-instagram mx-1" href="https://www.instagram.com" target="_blank">
+                          <i class="fa fa-instagram"> </i>
+                      </a>
+                  </li>
+                </ul>
+              </div>-->
+              <div class="footer-copyright text-center py-3">
+                <p>© 2019 Chat Up</p>
+                <a href="#" class="mr-2" style="text-decoration: none">Terms </a>
+                <a href="#" class="mr-2" style="text-decoration: none">Privacy & Policy </a>
+                <a href="#" style="text-decoration: none">Help </a>
+              </div>
+            </footer>

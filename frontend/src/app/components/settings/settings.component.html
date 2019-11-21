@@ -1,0 +1,20 @@
+<div id="content">
+  <!--Uses a different navbar from the rest of the app due to there being no settings button on it-->
+  <nav class="navbar navbar-expand-lg navbar-light bg-dark fixed-top">
+      <a class="navbar-brand" [routerLink]="['']" tabindex="6"><img src="http://localhost:4200/assets/imgs/logos/logo.png" alt="Chat Up" width="40px"></a>
+      <div style="margin-left: auto" class="mt-2 mr-3 navbar-buttons">
+          <a (click)="viewProfile()" matTooltip="Profile" class="m-2"><button mat-mini-fab class="bg-secondary" [disabled]="username == undefined" tabindex="1"><span *ngIf="username">{{username?.charAt(0)}}</span></button></a>
+          <span matTooltip="Message center" style="cursor:pointer" class="m-2" tabindex="2"><i class="fa fa-envelope-square text-warning"></i></span>
+          <span matTooltip="Upload from your device" class="uploadFromDevice m-2" (click)="openUploadDialog()" style="cursor:pointer" tabindex="3"><i class="fa fa-arrow-up text-warning"></i></span>
+          <span matTooltip="Notifications" style="cursor:pointer" class="m-2"><i class="fa fa-bell text-warning" tabindex="4"></i><span class="badge text-warning">0</span></span>
+          <span matTooltip="Log out" (click)="AuthService.logout()" class="m-2" style="cursor:pointer" tabindex="5"><i class="fa fa-sign-out text-warning"></i></span>
+      </div>
+  </nav>
+</div>
+
+<div class="container" style="margin-top: 100px">
+  <app-profile-settings [owner_id$]="owner_id" (username)="updateUsername($event)"></app-profile-settings>
+  <app-account-security-settings [owner_id$]="owner_id" [account$]="account"></app-account-security-settings>
+  <app-address-contacts-settings [owner_id$]="owner_id"></app-address-contacts-settings>
+  <app-preferences-settings></app-preferences-settings>
+</div>

@@ -1,0 +1,10 @@
+.rounded-photo {
+    border-radius: 50%;
+    cursor: pointer;
+    width: 40px;
+}
+@media(max-width:992px){
+    .navbar-buttons{
+        display: none;
+    }
+}

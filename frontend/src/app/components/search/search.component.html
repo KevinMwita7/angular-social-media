@@ -1,0 +1,21 @@
+<app-user-navbar [username]="_username" [currentUserId]="user_id"></app-user-navbar>
+<ng-progress></ng-progress>
+<mat-sidenav-container class="contain">
+    <mat-sidenav-content class="content">
+        <app-filters></app-filters>
+        <div class="container" style="margin-top: 200px" *ngIf="noPostsFound && noUsersFound">
+        <p class="text-center"><i class="fa fa-frown-o"></i></p>
+        <p class="text-center">Could not find anything matching.</p>
+        </div>
+        <app-found-users [foundAccounts]="accounts"></app-found-users>
+        <app-render-media [posts]="posts" [reactor_id]="user_id"></app-render-media>
+    </mat-sidenav-content>
+    <mat-sidenav position="end" 
+    mode="side" 
+    opened
+    [disableClose]="true">
+        <app-chat></app-chat>
+    </mat-sidenav>
+</mat-sidenav-container>
+
+ 

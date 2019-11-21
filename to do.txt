@@ -1,0 +1,7 @@
+things using the account interface
+*profile-settings.component
+
+*make sure a person cannot follow themselves. compare _ids to know who is logged in
+*add a followed field to the returned user accounts during a search result which will be set with the appropriate boolean value on the server side. This is to move most of the logic of
+ knowing whether someone has already being followed by another to the server and avoid using up most memory of our users
+*make a socket for searching for users to make it sort of a stream instead of waiting for search operation to be completed

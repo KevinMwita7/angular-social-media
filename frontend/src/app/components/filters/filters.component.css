@@ -1,0 +1,7 @@
+.filters{
+    position: absolute;
+    top: 64px;
+    width: 100%;
+    z-index: 1;
+    background: white;
+}

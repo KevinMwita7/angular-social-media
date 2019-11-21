@@ -1,0 +1,30 @@
+<div class="wrapper">
+  <div class="container">
+    <span style="cursor: pointer" class="float-left" (click)="back()">
+      <i class="fa fa-arrow-left"></i>
+    </span>
+        <img src="{{currentThread.avatarSrc}}" class="rounded-photo ml-2">
+        <span class="ml-1" style="cursor: pointer">{{currentThread?.name}}</span>
+    <i class="fa fa-ellipsis-v float-right" style="cursor: pointer"></i>
+    </div>
+    
+    <mat-divider class="text-dark mt-3"></mat-divider>
+    
+    <div>
+      <div class="messages">
+          <div>
+              <app-chat-message 
+              *ngFor="let chatMessage of chatMessages | async" 
+              [chatMessage]="chatMessage">
+              </app-chat-message>
+            </div>
+          <div class="clear"></div>
+      </div>
+      <div class="input-box">
+          <textarea placeholder="Enter message" 
+          [(ngModel)]="draftMessage.body" 
+          (keyup.enter)="sendMessage($event)"
+          (keyup.escape)="cancel($event)"></textarea>
+      </div>
+    </div>
+</div>

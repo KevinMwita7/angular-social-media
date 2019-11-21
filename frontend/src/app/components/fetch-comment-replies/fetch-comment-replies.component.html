@@ -1,0 +1,4 @@
+<small class="text-secondary" (click)="fetchReplies()" style="cursor:pointer; display:block">
+{{repliesAmount}} repl<span *ngIf="repliesAmount !== 1">ies</span>
+<span *ngIf="repliesAmount === 1">y</span>
+</small>

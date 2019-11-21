@@ -1,0 +1,34 @@
+<div class="container" style="margin-top: 150px" 
+infiniteScroll
+[infiniteScrollDistance]="5"
+[infiniteScrollThrottle]="50"
+>
+
+<div class="row" style="margin-top: 100px;">
+    <div *ngFor="let image of images" class="col-md-12 mb-2">
+            <mat-card class="item-card">
+                <mat-card-header class="mb-1">
+                  <img mat-card-avatar [src]="image.uploaderProfilePic" alt="">
+                  <mat-card-title>{{image.uploader}}</mat-card-title>
+                  <mat-card-subtitle><i class="fa fa-calendar"></i> {{image.createdAt | date:'medium'}}</mat-card-subtitle>
+                </mat-card-header>
+                <img mat-card-image [defaultImage]="defaultImage" [lazyLoad]="image.url" [offset]="100" class="image" oncontextmenu="return false">
+                <mat-card-content>
+                  <h3 *ngIf="image.title">{{image.title}}</h3>
+                  <p *ngIf="image.description">{{image.description}}</p>
+                  <p class="likes"><i class="fa fa-heart"> <span  style="font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif" class="ml-3">{{image.likes}} like<span *ngIf="image.likes !== 1">s</span></span></i></p>
+                </mat-card-content>
+                <mat-card-actions>
+                  <button mat-button name="Share">Share</button>
+                  <a mat-button href={{image.url}} target="_blank" rel="noopener" style="text-decoration: none !important; color: black">View</a>
+                </mat-card-actions>
+              </mat-card>
+    </div>
+  </div>
+
+<div class="loader">
+  <svg viewBox="0 0 32 32" width="32" height="32">
+    <circle id="spinner" cx="16" cy="16" r="14" fill="none"></circle>
+  </svg>
+</div>
+</div>

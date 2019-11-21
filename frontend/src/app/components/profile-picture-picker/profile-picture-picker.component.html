@@ -1,0 +1,24 @@
+<input type="file" #file style="display: none" (change)="onFilePicked()"/>
+<div class="container" fxLayout="column" fxLayoutAlign="space-evenly stretch">
+  <div>
+    <button [disabled]="uploading || uploadSuccessful || fileName" mat-raised-button color="primary" class="add-files-btn" (click)="pickFile()">
+      Choose photo
+    </button>
+  </div>
+
+  <!-- This is the content of the dialog, containing a list of the files to upload -->
+  <mat-dialog-content fxFlex>
+    <mat-list>
+      <mat-list-item>
+        <h4 mat-line>{{fileName}}</h4>
+        <mat-progress-bar *ngIf="progress" mode="determinate" [value]="progress[fileName].progress | async"></mat-progress-bar>
+      </mat-list-item>
+    </mat-list>
+  </mat-dialog-content>
+
+  <!-- This are the actions of the dialog, containing the primary and the cancel button-->
+  <mat-dialog-actions class="actions">
+    <button *ngIf="showCancelButton" mat-button mat-dialog-close id="cancelUpload">Cancel</button>
+    <button mat-raised-button color="primary" [disabled]="!canBeClosed" (click)="closePicker()">{{primaryButtonText}}</button>
+  </mat-dialog-actions>
+</div>

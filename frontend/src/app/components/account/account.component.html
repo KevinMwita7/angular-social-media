@@ -1,0 +1,15 @@
+<app-user-navbar [username]="username" [currentUserId]="currentUserId"></app-user-navbar>
+<ng-progress></ng-progress>
+<mat-sidenav-container class="contain">
+<mat-sidenav-content class="content">
+    <div class="container" style="margin-top: 100px; margin-left: 25%">
+        <facebook-content-loader [width]="1000" [primaryColor]="'#A9A9A9'" [secondaryColor]="'#D3D3D3'"></facebook-content-loader>
+    </div>
+</mat-sidenav-content>
+<mat-sidenav position="end" 
+mode="side" 
+opened class="sidenav"
+[disableClose]="true">
+    <app-chat></app-chat>
+</mat-sidenav>
+</mat-sidenav-container>

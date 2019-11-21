@@ -1,0 +1,6 @@
+mat-card{
+    max-width: 800px;
+};
+.multiLinesText{
+    white-space: pre-line;
+}

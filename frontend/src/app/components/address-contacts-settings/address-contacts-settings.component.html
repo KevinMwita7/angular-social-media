@@ -1,0 +1,24 @@
+
+  <div class="card mt-3 mb-3 p-2">
+    <div class="card-title"><h1>Address & Contacts</h1></div>
+    <hr>
+    <form [formGroup]="LocationForm" (ngSubmit)="submitLocation()">
+      <div class="form-group">
+        <label for="town">City or Town</label>
+        <input type="text" name="town" id="town" class="form-control col-md-6" formControlName="city" [ngClass]="{'is-invalid': LocationFormSubmitted && LocationFormFields.city.errors}">
+        <div *ngIf="LocationFormSubmitted && LocationFormFields.city.errors" class="invalid-feedback">
+          <p>Please fill in this field</p>
+      </div>
+      <div class="form-group">
+        <label for="country">Country</label>
+        <input type="text" name="region" id="country" class="form-control col-md-6" formControlName="country" [ngClass]="{'is-invalid': LocationFormSubmitted && LocationFormFields.country.errors}">
+        <div *ngIf="LocationFormSubmitted && LocationFormFields.country.errors" class="invalid-feedback">
+            <p>Please fill in this field</p>
+        </div>
+      </div>
+      </div>
+      <div class="form-group">
+        <input type="submit" class="btn mt-2 btn-secondary">
+      </div>
+    </form>
+  </div>

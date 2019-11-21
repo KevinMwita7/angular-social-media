@@ -1,0 +1,9 @@
+<div class="input-group mt-2"  *ngIf="showReplyInputBox">
+    <mat-form-field style="width: 100%">
+        <input type="text" name="comment" matInput id="comment" autofocus class="form-control" placeholder="Reply..." #commentReplyInputBox (keydown.enter)="submitReply(commentReplyInputBox)">
+    </mat-form-field>
+    <div style="margin-left:auto">
+        <button mat-button style="margin-left:auto" class="mr-1" (click)="hideInputBox()">Cancel</button>
+        <button mat-flat-button style="margin-left:auto" (click)="submitReply(commentReplyInputBox)">Send</button>
+    </div>
+</div>

@@ -1,0 +1,26 @@
+<div>
+  <div *ngFor="let reply of pagedReplies" class="ml-5">
+      <mat-card-header>
+        <img mat-card-avatar [src]="reply.author_profilePic" draggable="false" oncontextmenu="return false">
+        <mat-card-title>{{reply.author_name}}</mat-card-title>
+        <mat-card-subtitle><small>{{getRelativeTime(reply?.createdAt)}}</small></mat-card-subtitle>
+      </mat-card-header>
+      <mat-card-content>
+        <p>{{reply.text}}</p>
+      </mat-card-content>
+    </div>
+    <ul *ngIf="pager.pages && pager.pages.length" class="list-inline ml-5">
+      <!--<ul *ngIf="pager.pages.length > 1 && pager.pages.length" class="list-inline ml-5">-->
+      <li [ngClass]="{'text-secondary': pager.currentPage === 1}" class="list-inline-item" [style.cursor]="'pointer'">
+          <a (click)="setPage(pager.currentPage - 1)" [style.font-size.px]="'13'"> Previous </a>
+      </li>
+      <li *ngFor="let page of pager.pages" [ngClass]="{'text-primary':pager.currentPage === page}" class="list-inline-item" [style.cursor]="'pointer'">
+          <a (click)="setPage(page)" [style.font-size.px]="'13'"> {{page}}</a>
+      </li>
+      <li [ngClass]="{'text-secondary':pager.currentPage === pager.totalPages}" class="list-inline-item" [style.cursor]="'pointer'">
+          <a (click)="setPage(pager.currentPage + 1)" [style.font-size.px]="'13'"> Next </a>
+      </li>
+  </ul>
+</div>
+<app-comment-reply-input-box [parent_id]="parent._id" (newReply)="updateReply($event)" (repliesCount)="updateRepliesCount($event)"></app-comment-reply-input-box>
+<app-fetch-comment-replies [comment_id]="parent._id" [repliesAmount]="repliesAmount" (ReplyEmitter)="renderReplies($event)"></app-fetch-comment-replies>

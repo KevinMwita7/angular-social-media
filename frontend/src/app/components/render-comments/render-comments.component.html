@@ -1,0 +1,17 @@
+<app-fetch-comments [image]="image" [commentsAmount]="commentsAmount" [userId]="reactorId" (CommentsEmitter)="renderComments($event)"></app-fetch-comments>
+<mat-card class="mt-1"  [style.overflow]="'auto'" *ngIf="comments.length > 0" [style.height.px] = "'300'">
+    <div *ngFor="let comment of comments">
+        <mat-card-header>
+        <img  mat-card-avatar [src]="comment?.author_profilePic" draggable="false" oncontextmenu="return false">
+        <mat-card-title>{{comment?.author_name}}</mat-card-title>
+        <mat-card-subtitle><small>{{comment?.createdAt | fromNow}}</small></mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content>
+            <p>{{comment?.text}}</p>
+        </mat-card-content>
+        <app-comment-actions [comment]="comment"[reactorId]="reactorId"></app-comment-actions>
+        <app-render-reply-thread [parent]="comment" style="display:inline"></app-render-reply-thread>
+        <hr>
+    </div>
+</mat-card>
+<app-comments-input-box [image]="image" (recentComment)="recentComment($event)" (commentsAmount)="updateCommentsCount($event)"></app-comments-input-box>

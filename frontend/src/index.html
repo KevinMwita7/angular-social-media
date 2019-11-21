@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <style type="text/css">
+      body, html {
+        height: 100%;
+      }
+      .app-loading {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100%;
+      }
+      .app-loading .spinner {
+        height: 200px;
+        width: 200px;
+        animation: rotate 2s linear infinite;
+        transform-origin: center center;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        margin: auto;
+      }
+      .app-loading .spinner .path {
+        stroke-dasharray: 1, 200;
+        stroke-dashoffset: 0;
+        animation: dash 1.5s ease-in-out infinite;
+        stroke-linecap: round;
+        stroke: #ddd;
+      }
+      @keyframes rotate {
+        100% {
+          transform: rotate(360deg);
+        }
+      }
+      @keyframes dash {
+        0% {
+          stroke-dasharray: 1, 200;
+          stroke-dashoffset: 0;
+        }
+        50% {
+          stroke-dasharray: 89, 200;
+          stroke-dashoffset: -35px;
+        }
+        100% {
+          stroke-dasharray: 89, 200;
+          stroke-dashoffset: -124px;
+        }
+      }
+    </style>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet">
+  <meta charset="utf-8">
+  <meta name="description" content="View and sell art">
+  <meta name="description" content="art, drawings, artwork, video, music, draw, create, listen, listen to music, watch, watch videos, stream, stream videos">
+  <meta name="description" content="social, social media, buy, sell, e-commerce, ecommerce, socialize">
+  <meta name="theme-color" content="#606860">
+  <title>Chat Up</title>
+  <base href="/">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+</head>
+<body style="overflow-x: hidden;">
+  <app-root>
+      <div class="app-loading">
+          <img src="data:image/png;base64,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" alt="Chat Up" width="60px">
+          <svg class="spinner" viewBox="25 25 50 50">
+            <circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="2" stroke-miterlimit="10"/>
+          </svg>
+        </div>
+  </app-root> 
+</body>
+</html>

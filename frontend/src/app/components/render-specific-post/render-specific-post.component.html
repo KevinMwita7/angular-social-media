@@ -1,0 +1,18 @@
+<mat-card class="item-card">
+  <mat-card-header class="mb-2">
+    <img mat-card-avatar [src]="post?.uploaderProfilePic" oncontextmenu="return false" draggable="false" (click)="viewProfile()" style="cursor:pointer">
+    <mat-card-title (click)="viewProfile()" style="cursor:pointer">{{post?.uploader}}</mat-card-title>
+    <mat-card-subtitle>{{getRelativeTime(post?.createdAt)}}</mat-card-subtitle>
+  </mat-card-header>
+  <img mat-card-image *ngIf="post?.url" [defaultImage]="defaultImage" [lazyLoad]="post?.url" draggable="false" (click)="getHqImage()" style="cursor:pointer">
+  <mat-card-content>
+    <h3 *ngIf="post?.title" class="multiLinesText">{{post?.title}}</h3>
+    <p *ngIf="post?.description" class="multiLinesText" [innerHTML]="post?.description" style="white-space: pre-wrap"></p>
+  </mat-card-content>
+  <mat-card-actions class="ml-1">
+  <p *ngIf="!post?.liked" style="display:inline"><i class="fa fa-thumbs-o-up" (click)="reaction()" style="cursor:pointer"></i><span style="font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif" class="ml-3">{{post?.likes}} like<span *ngIf="post?.likes !== 1">s</span></span></p>
+  <p *ngIf="post?.liked" style="display:inline; color: darkorange"><i class="fa fa-thumbs-up" (click)="reaction()" style="cursor:pointer;"></i><span style="font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif" class="ml-3">{{post?.likes}} like<span *ngIf="post?.likes !== 1">s</span></span></p>
+  <i class="fa fa-ellipsis-v float-right mr-3" style="cursor:pointer"></i>
+  </mat-card-actions>
+  <app-render-comments [image]="post" [reactorId]="reactorId"></app-render-comments>
+</mat-card>

@@ -1,0 +1,7 @@
+<small class="mr-2"   style="cursor:pointer" [ngClass]="{'liked': CommentModel.isLiked()}" (click)="like()">
+  {{CommentModel.getCommentMemberVariable?.likes}} like<span *ngIf="CommentModel.comment?.likes !== 1">s</span>
+</small>
+<small class="mr-2"   style="cursor:pointer" [ngClass]="{'disliked': CommentModel.isDisliked()}" (click)="dislike()">
+  {{CommentModel.getCommentMemberVariable?.dislikes}} dislike<span *ngIf="CommentModel.comment?.dislikes !== 1">s</span>
+</small>
+<small class="mr-2" style="cursor:pointer" class="text-secondary" (click)="showReplyInputBox()" *ngIf="!commentInputBoxVisible">Reply</small>

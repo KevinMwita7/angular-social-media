@@ -1,0 +1,6 @@
+<div class="input-group mt-2">
+  <mat-form-field style="width: 100%">
+      <input type="text" name="comment" matInput id="comment" class="form-control" placeholder="Comment..." #commentInputBox (keydown.enter)="submitComment(commentInputBox)">
+  </mat-form-field>
+  <button mat-flat-button style="margin-left:auto" (click)="submitComment(commentInputBox)">Comment</button>
+</div>

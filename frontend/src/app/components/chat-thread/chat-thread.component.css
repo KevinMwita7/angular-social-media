@@ -1,0 +1,29 @@
+.rounded-photo {
+    width: 25px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+.thread {
+    cursor: pointer;
+}
+.thread:hover {
+    background-color: rgb(245,255,250);
+}
+.preview {
+    margin: 5px 0 0 0;
+    padding: 0 0 1px;
+    font-weight: 400;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -moz-transition: 1s all ease;
+    -o-transition: 1s all ease;
+    -webkit-transition: 1s all ease;
+    transition: 1s all ease;
+    width: 53%;
+}
+.wrap {
+    width: 88%;
+    margin: 0 auto;
+    position: relative;
+}

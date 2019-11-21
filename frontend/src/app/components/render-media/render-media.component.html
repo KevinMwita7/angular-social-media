@@ -1,0 +1,16 @@
+<div class="container" 
+infiniteScroll
+[infiniteScrollDistance]="5"
+[infiniteScrollThrottle]="50"
+>
+<div class="row mt-3 p-3 ml-1">
+    <div *ngFor="let post of posts; trackBy: trackElement" class="col-md-12 mb-2">
+      <app-render-specific-post [reactorId]="reactor_id" [post]="post"></app-render-specific-post>
+    </div>
+</div>
+<div class="loader">
+  <svg viewBox="0 0 32 32" width="32" height="32">
+    <circle id="spinner" cx="16" cy="16" r="14" fill="none"></circle>
+  </svg>
+</div>
+</div>

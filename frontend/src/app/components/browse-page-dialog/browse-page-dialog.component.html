@@ -1,0 +1,28 @@
+<form class="form-group" [formGroup]="signInForm" (ngSubmit)="signIn()">
+    <div class="input-group col-md-12">
+        <input type="text" class="form-control" formControlName="username" placeholder="Email or username..." [ngClass]="{'is-invalid': submitted && formControls.username.errors}">
+        <div *ngIf="submitted && formControls.username.errors" class="invalid-feedback">
+            <div *ngIf="formControls.username.errors.required">Please provide a username</div>
+        </div>
+    </div>
+    <div class="input-group mt-2 col-md-12">
+        <input type="password" class="form-control" formControlName="password" placeholder="Password" [ngClass]="{'is-invalid': submitted && formControls.password.errors}">
+        <div *ngIf="submitted && formControls.password.errors" class="invalid-feedback">
+            <div *ngIf="formControls.password.errors.required">Please provide a password</div>
+        </div>
+        <div *ngIf="submitted && formControls.password.errors" class="invalid-feedback">
+            <div *ngIf="formControls.password.errors.minlength">Password must be at least 6 characters long</div>
+        </div>
+    </div>
+    <div class="input-group mt-2">
+        <div class="col-12">
+            <button type="submit" class="btn btn-sm col-md-12" [disabled]="waitingForResponse">Sign In</button>
+        </div>
+    </div>
+</form>
+<p class="text-center">Or</p>
+<div class="input-group mt-2">
+    <div class="col-12">
+        <button (click)="navigateToSignUpPage()" class="btn btn-sm col-md-12">Sign Up</button>
+    </div>
+</div>

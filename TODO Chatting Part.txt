@@ -1,0 +1,24 @@
+#Issues
+1. Messages remain even when the user logs out as long as no reloading or closing of the page occurs. Though other users cannot see the messages of previously logged
+in users, due to different conversation_ids, it is highly inefficient to the user's RAM. Find a way to rectify this.
+2. Chat related services are provided in the ChatComponent due to complications when provided at ChatModule. This is highly inefficient as the Services are destroyed
+whenever the component is destroyed and reinitialized whenever the Component is initialized. This happens when the the user navigates from AccountComponent and SearchComponent
+To curb this, ensure ChatComponent is not destroyed between routes.
+
+#Features to add. Some of this will not be available in the Web Version
+See people who are online
+Show if message has been sent
+Show if message has been read
+know if someone is typing
+Add emojis and media e.g. gifs, video, images
+Modify input box to have a media buttons (for video, images, documents, audio), emoji, sticker and send button
+While on mobile view, take photo and upload it.
+Animated emojis
+Inbuilt gifs that can be filtered eg laugh
+Play games with someone who is online
+Record and send audio
+Sending emojis by themselves should not put them in a bubble and should be bigger than if they are sent together with a text
+Mute conversations, Send read receipts(specific options for each conversation)
+Tabs to see media sent to person
+Reminders to respond to message
+Schedule a message to be sent by picking the day and time and when that time arrives the message is sent automatically

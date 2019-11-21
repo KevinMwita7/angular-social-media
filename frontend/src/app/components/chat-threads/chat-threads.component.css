@@ -1,0 +1,8 @@
+ul {
+    list-style-type: none;
+}
+:host {
+    display: block;
+    width: 300px;
+    overflow-x: hidden;
+}

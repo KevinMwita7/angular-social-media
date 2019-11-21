@@ -1,0 +1,29 @@
+.item-card {
+    max-width: 800px;
+  }
+  
+.item-header-image {
+    background-size: cover;
+}
+
+.center-block{
+    position: relative;
+    left: 35%
+}
+
+img{
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    -webkit-user-drag: none;
+    user-drag: none;
+    -webkit-touch-callout: none;
+}
+
+@media(max-width:991px){
+    .navbar-brand{
+        position: relative;
+        left: 45%;
+    }
+}

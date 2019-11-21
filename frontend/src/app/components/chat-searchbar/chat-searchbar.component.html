@@ -1,0 +1,9 @@
+<div class="container">
+  <input type="search" placeholder="Search..." 
+class="form-control input-sm" name="searchbar" 
+(keydown.enter)="search()" [(ngModel)]="searchTerm">
+<p class="text-center mt-1">
+  <small>Use the search bar above to search for a user or conversations.</small>
+</p>
+</div>
+<mat-divider [inset]="false"></mat-divider>

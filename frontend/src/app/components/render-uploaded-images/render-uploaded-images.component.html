@@ -1,0 +1,15 @@
+<div class="container" style="margin-top:100px; margin-bottom: 100px">
+    <h4 class="imageUploadsHeader text-right">Image uploads</h4>
+    <hr>
+      <div class="row">
+          <div *ngFor="let post of uploadedPosts" class="col-lg-4 col-md-4 col-10 mb-2 thumb">
+              <div class="hovereffect">
+                <img  [src]="post.url" class="zoom img-responsive"  alt="">         
+                <div class="overlay">
+                    <p *ngIf="post.title">{{post.title}}</p>
+                    <p *ngIf="post.description">{{post.description}}</p>
+                </div>
+              </div>
+          </div>
+  </div>
+</div>

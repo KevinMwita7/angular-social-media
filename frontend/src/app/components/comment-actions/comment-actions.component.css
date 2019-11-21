@@ -1,0 +1,9 @@
+small{
+    color:#6c757d
+}
+small.liked{
+    color: #007bff;
+}
+small.disliked{
+    color: #dc3545;
+}

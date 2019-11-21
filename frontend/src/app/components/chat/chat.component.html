@@ -1,0 +1,37 @@
+<!--<div style="margin-top: 75px; width: 300px">
+  <app-chat-searchbar *ngIf="!chatRoomVisible"></app-chat-searchbar>
+  <div *ngIf="!chatRoomVisible">
+    <app-chat-search-result 
+    *ngFor="let accountFound of accountsFound" 
+    [result]="accountFound"  
+    (chatRoomVisible)="hideChatRoom()">
+    </app-chat-search-result>
+  </div>
+  <app-chat-room (moveBack)="hideChatRoom($value)" *ngIf="chatRoomVisible"></app-chat-room>
+  <app-chat-threads *ngIf="!chatRoomVisible"></app-chat-threads>
+</div>-->
+<div style="margin-top: 75px; width: 300px">
+  <app-chat-searchbar *ngIf="!chatRoomVisible"></app-chat-searchbar>
+  <div *ngIf="searchResultsVisible">
+    <app-chat-search-result 
+    *ngFor="let accountFound of accountsFound" 
+    [result]="accountFound">
+    </app-chat-search-result>
+  </div>
+  <mat-tab-group *ngIf="conversationsVisible">
+    <!--TODO: Reduce the width of the component to prevent overflow x-->
+    <!--<mat-tab label="Conversations" id="chat-nav-tabs">
+      <app-chat-threads *ngIf="conversationsVisible"></app-chat-threads>
+    </mat-tab>-->
+    <mat-tab label="Friends" id="chat-nav-tabs">
+      <ng-container *ngFor="let friend of friends">
+          <app-chat-friends-list 
+          [chatFriend]="friend"></app-chat-friends-list>
+      </ng-container>
+    </mat-tab>
+    <mat-tab label="Groups">
+      <app-chat-groups></app-chat-groups>
+    </mat-tab>
+  </mat-tab-group>
+  <app-chat-room *ngIf="chatRoomVisible"></app-chat-room>
+</div>

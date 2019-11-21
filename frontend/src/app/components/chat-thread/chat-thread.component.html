@@ -1,0 +1,18 @@
+<!--<div class="conversation" (click)="clicked($event)">
+  <div class="container">
+    <img src="{{chatThread.avatarSrc}}" class="rounded-photo">
+  <div class="media-body">
+    <h5 class="media-heading contact-name">{{chatThread.name}}
+      <span *ngIf="selected">&bull;</span>
+    </h5>
+    <p class="message-preview">{{chatThread.lastMessage.body}}</p>
+  </div>
+  </div>
+</div>-->
+<mat-card class="thread" (click)="clicked($event)">
+  <mat-card-header>
+      <img mat-card-avatar src="{{chatThread.avatarSrc}}" alt="{{chatThread.name}}">
+      <mat-card-title>{{chatThread.name}}</mat-card-title>
+      <mat-card-subtitle class="preview">{{chatThread.lastMessage.body}}</mat-card-subtitle>
+  </mat-card-header>
+</mat-card>
