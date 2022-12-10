@@ -35,7 +35,7 @@
     "classlist.js": "^1.1.20150312",
     "cookies": "^0.7.2",
     "core-js": "^2.5.4",
-    "express": "^4.16.4",
+    "express": "^4.18.2",
     "express-session": "^1.15.6",
     "font-awesome": "^4.7.0",
     "jquery": "^3.5.0",
